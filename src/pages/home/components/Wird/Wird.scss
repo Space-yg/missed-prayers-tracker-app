@@ -1,0 +1,33 @@
+.wird {
+	position: relative;
+	padding: 1em;
+	border: 1px solid black;
+	background-color: rgb(216, 241, 216);
+	margin-bottom: 1em;
+
+	.label {
+		margin: 0 4.5em .5em 0;
+	}
+
+	p {
+		margin: 0;
+
+		&.prayers {
+			display: flex;
+			flex-wrap: wrap;
+
+			.prayer-type {
+				margin: 0 .2em;
+				background-color: rgb(167, 244, 167);
+				padding: .25em;
+				border-radius: .5em;
+			}
+		}
+	}
+
+	.log-prayer-button {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+	}
+}

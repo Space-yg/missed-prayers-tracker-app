@@ -1,0 +1,16 @@
+{
+	"extends": "../../../tsconfig.app.json",
+	"compilerOptions": {
+		"paths": {
+			// Global
+			"@/types": ["../../types.d.ts"],
+			"@/database": ["../../database.ts"],
+			"@/utils": ["../../utils.tsx"],
+
+			// Local
+			"!/components/*": ["./components/*"],
+		}
+	},
+	"include": ["./"],
+	"exclude": []
+}
