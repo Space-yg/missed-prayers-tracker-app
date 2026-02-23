@@ -12,6 +12,9 @@
 			"@/types": ["./src/types.d.ts"],
 			"@/database": ["./src/database.ts"],
 			"@/utils": ["./src/utils.tsx"],
+
+      // Local
+      "!/*": ["./src/pages/home/*", "./src/pages/create-wird/*"],
     },
 
     /* Bundler mode */

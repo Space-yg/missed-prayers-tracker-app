@@ -68,7 +68,7 @@ export default function Wird({ wird }: Props) {
 			<button onClick={handleLogPrayerOnClick} className="log-prayer-button">Log Prayer</button>
 
 			<dialog ref={dialog}>
-				<LogPrayer wird={wird} onLog={closeDialog} onCancel={closeDialog} prayers={wird.prayerTypes.filter(prayerType => !prayerTypeCount[prayerType])} />
+				<LogPrayer wird={wird} onLog={closeDialog} onCancel={closeDialog} prayers={wird.prayerTypes.filter(prayerType => remainingPrayers - (typeof prayerTypeCount[prayerType] === "undefined" ? 0 : prayerTypeCount[prayerType]))} />
 			</dialog>
 
 			<p className="prayers">Prayers: {wird.prayerTypes.map((prayerType, i) => <span key={i} className="prayer-type">{prayerType[0].toUpperCase() + prayerType.slice(1)}</span>)}</p>
