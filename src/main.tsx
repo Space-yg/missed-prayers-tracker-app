@@ -11,8 +11,10 @@ createRoot(document.getElementById("root")!).render(
 	<StrictMode>
 		<BrowserRouter>
 			<Routes>
-				<Route index element={<HomePage />} />
-				<Route path="/create/wird" element={<CreateWirdPage />} />
+				<Route path="missed-prayers-tracker-app">
+					<Route index element={<HomePage />} />
+					<Route path="create/wird" element={<CreateWirdPage />} />
+				</Route>
 			</Routes>
 		</BrowserRouter>
 	</StrictMode>,

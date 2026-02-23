@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "homepage": "http://localhost:4173/missed-prayers-tracker-app",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

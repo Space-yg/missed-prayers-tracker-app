@@ -17,7 +17,7 @@ export default function App({ }: Props) {
 	const db = use(dbConnected)
 
 	const [label, setLabel] = useState<string>("")
-	const [prayers, setPrayers] = useImmer<PrayerType[]>(["fajr", "dhuhr", "asr", "maghreb", "isha"])
+	const [prayers, setPrayers] = useImmer<PrayerType[]>([])
 	const [startDate, setStartDate] = useState<number>(Date.now())
 	const [duration, setDuration] = useState<number>(1)
 	const [durationCategory, setDurationCategory] = useState<DurationCategory>("days")
@@ -52,7 +52,7 @@ export default function App({ }: Props) {
 		})
 
 		// Go back to home page
-		navigate("/")
+		navigate("/missed-prayers-tracker-app")
 	}, [label, prayers, startDate, duration, durationCategory])
 
 	return (

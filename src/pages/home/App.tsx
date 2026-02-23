@@ -26,7 +26,7 @@ export default function App({ }: Props) {
 				<Wirds wirds={wirds} />
 			}
 
-			<Link to="/create/wird">Create a new wird</Link>
+			<Link to="/missed-prayers-tracker-app/create/wird">Create a new wird</Link>
 		</>
 	)
 }

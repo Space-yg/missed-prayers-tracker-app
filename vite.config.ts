@@ -28,5 +28,6 @@ export default defineConfig({
 			{ find: "!/components", replacement: "", customResolver: pagesLocalImport("/components", true) },
 			{ find: "!/contexts", replacement: "", customResolver: pagesLocalImport("/contexts") },
 		]
-	}
+	},
+	base: "/missed-prayers-tracker-app"
 })

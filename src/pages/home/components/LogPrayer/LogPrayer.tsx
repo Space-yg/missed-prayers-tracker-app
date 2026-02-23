@@ -1,4 +1,4 @@
-import { use, useCallback, useEffect, useRef, useState } from "react"
+import { use, useCallback, useEffect, useState } from "react"
 import dbConnected from "@/database"
 
 import type { Wird, PrayedPrayer, PrayerType } from "@/types"
@@ -17,29 +17,37 @@ export default function LogPrayer({ wird, prayers, onLog, onCancel }: Props) {
 	const db = use(dbConnected)
 
 	const [prayer, setPrayer] = useState<PrayedPrayer["prayerType"]>(prayers[0])
-	const [datePrayed, setdatePrayed] = useState<Date>(new Date(Date.now()))
+	const [datePrayed, setDatePrayed] = useState<Date>(new Date(Date.now()))
 
 	const handlePrayerOnInput = useCallback((event: React.InputEvent<HTMLSelectElement>) => {
 		setPrayer(event.currentTarget.value as PrayedPrayer["prayerType"])
 	}, [setPrayer])
 
 	const handleDatePrayedOnInput = useCallback((event: React.InputEvent<HTMLInputElement>) => {
-		setdatePrayed(new Date(event.currentTarget.value))
-	}, [setdatePrayed])
+		setDatePrayed(new Date(event.currentTarget.value))
+	}, [setDatePrayed])
 
 	const handleLogPrayerOnClick = useCallback(() => {
 		db.add("prayed-prayers", {
+			wirdId: wird.id,
 			prayerType: prayer,
 			datePrayed: datePrayed,
-			wirdId: wird.id,
 		}).then(onLog)
-	}, [prayer, datePrayed])
+		console.log(wird.id, prayer)
+		console.log(wird.id, prayers)
+	}, [wird, prayer, datePrayed])
+
+	useEffect(() => {
+		setPrayer(prayers[0])
+	}, [])
+	console.log(prayers)
 
 	return (
 		<>
 			{/* Prayer */}
 			<label>
 				Prayer:
+				{/* FIX: even though fajr does not get displayed, it is still selected by default */}
 				<select name="prayer" value={prayer} onInput={handlePrayerOnInput}>
 					{prayers.includes("fajr") && <option value="fajr">Fajr</option>}
 					{prayers.includes("dhuhr") && <option value="dhuhr">Dhuhr</option>}
